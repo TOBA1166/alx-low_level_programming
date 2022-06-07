@@ -4,11 +4,11 @@
 
 /**
  *
- * main - check the code for Holberton School students.
+ *   main - check the code for Holberton School students.
  *
+ *   
  *
- *
- * Return: Always 0.
+ *     Return: Always 0.
  *
  */
 
@@ -16,26 +16,8 @@ int main(void)
 
 {
 
-		int i,j;
+		print_alphabet();
 
-
-
-			for (j = 0; j <= 9; j++)
-
-					{
-
-								for (i = 'a'; i <= 'z'; i++)
-
-											{
-
-															_putchar(i);
-
-																	}
-
-										_putchar('\n');
-
-											}
-
-				return (0);
+			return (0);
 
 }
