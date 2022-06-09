@@ -2,8 +2,8 @@
 
 /**
  * mul - Two integers multiplication
- * a: integer one
- * b: integer two
+ * @a: integer one
+ * @b: integer two
  *
  * Return: Multiplication.
  */
