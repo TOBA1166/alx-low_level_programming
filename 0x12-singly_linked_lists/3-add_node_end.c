@@ -1,34 +1,63 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * add_node_end - add new node to the end of list_t
- * @head: pointer to the pointer of beginning of list_t
- * @str: string to be added
- * Return: New node added
- */
+  * add_node_end - Adds a new node at the end of a list
+  * @head: The original linked list
+  * @str: The string to add to the node
+  *
+  * Return: The address of the new list or NULL if it failed
+  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *add, *current;
-	int a;
+	list_t *new_list, *temp;
 
-	if (head == NULL)
-		return (NULL);
-	add = malloc(sizeof(list_t));
-	if (add == NULL)
-		return (NULL);
-	if (*head == NULL)
-		*head = add;
-	else
+	if (str != NULL)
 	{
-		current = *head;
-		while (current->next != NULL)
-			current = current->next;
-		current->next = add;
+		new_list = malloc(sizeof(list_t));
+		if (new_list == NULL)
+			return (NULL);
+
+		new_list->str = strdup(str);
+		new_list->len = _strlen(str);
+		new_list->next = NULL;
+
+		if (*head == NULL)
+		{
+			*head  = new_list;
+			return (*head);
+		}
+		else
+		{
+			temp = *head;
+			while (temp->next)
+				temp = temp->next;
+
+			temp->next = new_list;
+			return (temp);
+		}
 	}
-	add->next = NULL;
-	add->str = strdup(str);
-	for (a = 0; str[a] != '\0'; a++)
-		;
-	add->len = a;
-	return (add);
+
+	return (NULL);
+}
+
+/**
+  * _strlen - Returns the length of a string
+  * @s: String to count
+  *
+  * Return: String length
+  */
+int _strlen(const char *s)
+{
+	int c = 0;
+
+	while (*s)
+	{
+		s++;
+		c++;
+	}
+
+	return (c);
 }
